@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const COUNTRIES = gql`{
-    Country(first:20) {
+    Country {
         _id
         name
         capital

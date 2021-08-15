@@ -1,11 +1,9 @@
 import Grid from '@material-ui/core/Grid';
-import { Card, Box, CardActionArea, Typography, TextField } from '@material-ui/core';
+import { TextField, Box } from '@material-ui/core';
 import { useQuery } from '@apollo/client';
 import { COUNTRIES } from '../queries';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
-
+import CountryCard from './CountryCard';
 
 const Home = () => {
     const [ searchString, setSearchString ] = useState("")
@@ -16,27 +14,23 @@ const Home = () => {
         const result = data?.Country.filter(country =>
             country.name.toLowerCase().includes(searchString.toLowerCase())
         )
-        if (result) setCountries(result.slice(0,30))
+        if (result) setCountries(result.slice(0,20))
     }, [data, searchString])
     
     const _handleSearchUpdate = (event) => {
         setSearchString(event.target.value)
     }
-
     return (
-        <Grid container direction='column'>
-            <TextField onChange={_handleSearchUpdate} />
-            <Grid spacing={3} container direction='row'>
-                {countries?.map((country) => (
-                    <Card key={country._id} padding={20}>
-                        <Link to={'/'+country._id}>
-                            <CardActionArea padding={2}>
-                                <Typography variant="h5">{country.name}</Typography>
-                                <Box padding={2}><img alt={`${country.name} flag.`} width={120} src={country.flag.svgFile} /></Box>
-                            </CardActionArea>
-                        </Link>
-                    </Card>
-                ))}
+        <Grid item container sm={10} md={8} justifyContent="center">
+            <Box width="100%" m={4}>
+                <TextField fullWidth onChange={_handleSearchUpdate} label="Search" type="search" variant="outlined" />
+            </Box>
+            <Grid container item spacing={3} xs={12}>
+                {countries?.map((country) => 
+                    <Grid item key={country._id} xs={12} lg={6}>
+                        <CountryCard country={country} />
+                    </Grid>
+                )}
             </Grid>
         </Grid>
     )

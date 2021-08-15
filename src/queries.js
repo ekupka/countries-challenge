@@ -15,6 +15,11 @@ export const COUNTRY = (_id) => gql`{
     Country(_id:"${_id}") {
         name
         capital
+        population
+        area
+        topLevelDomains {
+            name
+        }
         flag {
             svgFile
         }

@@ -1,4 +1,4 @@
-import { Grid, Container, TextField, Box, Paper } from "@material-ui/core"
+import { TextField, Box, Paper } from "@material-ui/core"
 import { useQuery } from '@apollo/client';
 import { COUNTRY } from '../queries';
 import { useParams } from "react-router-dom";
@@ -13,13 +13,10 @@ const Country = () => {
     return (
         <Fragment>
             <Paper elevation={3}>
-
                 <Box display="flex" flexDirection="column" m={2}>
-                    
                         <Box maxWidth={"420px"} >
                             <img width="100%" alt={`${data?.Country[0].name} flag.`} src={data?.Country[0].flag.svgFile} />
                         </Box>
-
                         <TextField 
                             disabled
                             id="country-name"

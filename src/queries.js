@@ -11,17 +11,18 @@ export const COUNTRIES = gql`{
     }
 }`;
 
-export const COUNTRY = (_id) => gql`{
-    Country(_id:"${_id}") {
-        name
-        capital
-        population
-        area
-        topLevelDomains {
+export const GET_COUNTRY = gql`
+    query Country($_id: String!) {
+        Country(_id: $_id) {
             name
+            capital
+            population
+            area
+            topLevelDomains {
+                name
+            }
+            flag {
+                svgFile
+            }
         }
-        flag {
-            svgFile
-        }
-    }
-}`;
+}`

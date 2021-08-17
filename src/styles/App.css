@@ -22,11 +22,15 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.country-data .MuiFormControl-fullWidth {
+  margin-bottom: 4px;
+}
+.country-data input:disabled {
+  color: #000;
+}
+.country-data label {
+  color: #000;
+}
+.country-data .MuiInput-underline.Mui-disabled:before {
+    border-bottom-style: none;
 }

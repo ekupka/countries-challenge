@@ -49,35 +49,50 @@ const Country = () => {
     return (
         <Fragment>
             <Paper elevation={3}>
-                <Box display="flex" flexDirection="column" m={2}>
-                    <Box maxWidth={"420px"} >
+                <Box display="flex" flexDirection="column" m={2} className="country-data">
+                    <Box maxWidth={"420px"} mb={4}>
                         <img width="100%" alt={`${data?.Country[0].name} flag.`} src={data?.Country[0].flag.svgFile} />
                     </Box>
 
-                    <TextField fullWidth disabled={!isEditing} label="Name" id="name" name="name"
-                        value={name ?? "Loading"} onChange={(e)=> setName(e.target.value)}
+                    <TextField fullWidth 
+                        label="Name" id="name" name="name"
+                        disabled={!isEditing} 
+                        value={name ?? "Loading"} 
+                        onChange={(e)=> setName(e.target.value)}
                     />
-                    <TextField fullWidth disabled={!isEditing} label="Capital" id="capital" name="capital"
+                    <TextField fullWidth 
+                        label="Capital" id="capital" name="capital"
+                        disabled={!isEditing} 
                         value={capital ?? "Loading"} onChange={(e)=> setCapital(e.target.value)}
                     />
-                    <TextField fullWidth disabled={!isEditing} label="Area" id="area" name="area"
+                    <TextField fullWidth 
+                        label="Area" id="area" name="area"
+                        disabled={!isEditing} 
                         value={area ?? "Loading"} onChange={(e)=> setArea(e.target.value)}
                     />
-                    <TextField fullWidth disabled={!isEditing} label="Population" id="population" name="population"
+                    <TextField fullWidth 
+                        label="Population" id="population" name="population"
+                        disabled={!isEditing} 
                         value={population ?? "Loading"} onChange={(e)=> setPopulation(e.target.value)}
                     />
-                    <TextField fullWidth disabled={!isEditing} label="Top Level Domain" id="tld" name="tld"
+                    <TextField fullWidth 
+                        label="Top Level Domain" id="top-level-domain" name="top-level-domain"
+                        disabled={!isEditing} 
                         value={topLevelDomain ?? "Loading"} onChange={(e)=> setTopLevelDomain(e.target.value)}
                     />
 
-                    <Box display="flex" m={2} justifyContent="center">
+                    <Box display="flex"justifyContent="center">
                         {isEditing ? (
                             <>
-                                <Button variant="outlined" onClick={() => setIsEditing(false)}>Cancel</Button>
-                                <Button variant="outlined" onClick={handleSaveChanges}>Save</Button>
+                                <Box m={2}>
+                                    <Button variant="outlined" onClick={() => setIsEditing(false)}>Cancel</Button>
+                                </Box>
+                                <Box m={2}>
+                                    <Button variant="outlined" onClick={handleSaveChanges}>Save</Button>
+                                </Box>
                             </>
                         ): (
-                            <Button variant="outlined" onClick={() => setIsEditing(true)}>Edit</Button>
+                            <Box m={2}><Button variant="outlined" onClick={() => setIsEditing(true)}>Edit</Button></Box>
                         )}
                     </Box>
 

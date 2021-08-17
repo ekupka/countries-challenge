@@ -1,9 +1,9 @@
 import Grid from '@material-ui/core/Grid';
 import { TextField, Box } from '@material-ui/core';
 import { useQuery } from '@apollo/client';
-import { COUNTRIES } from '../queries';
+import { COUNTRIES, GET_COUNTRY } from '../queries';
 import { useEffect, useState } from 'react';
-import CountryCard from './CountryCard';
+import CountryCard from '../components/CountryCard';
 
 const Home = () => {
     const [ searchString, setSearchString ] = useState("")

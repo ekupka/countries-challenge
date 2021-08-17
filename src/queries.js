@@ -25,4 +25,4 @@ export const GET_COUNTRY = gql`
                 svgFile
             }
         }
-}`
+    }`

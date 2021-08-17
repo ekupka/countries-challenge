@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const CountryCard = ({country}) => {
     return (
-        <Link to={'/'+country._id}>
+        <Link to={'/'+country._id} style={{ textDecoration: 'none' }}>
             <Card key={country._id} padding={20} width={6}>
                     <CardActionArea padding={2}>
                         <Box display="flex" alignItems="center" >

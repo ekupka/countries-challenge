@@ -1,12 +1,12 @@
 import './../styles/App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import Country from './Country';
+import Home from '../pages/Home';
+import Country from '../pages/Country';
 import Header from './Header';
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache} from '@apollo/client';
 
 const httpLink = createHttpLink({
-  uri: 'http://testefront.dev.softplan.com.br/'
+  uri: process.env.REACT_APP_API_URL
 });
 
 const client = new ApolloClient({

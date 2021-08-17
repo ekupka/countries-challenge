@@ -1,5 +1,5 @@
 import { withRouter } from "react-router-dom";
-import { Container, Button } from '@material-ui/core';
+import { Container, Box, Button } from '@material-ui/core';
 
 
 const Header = (props) => {
@@ -11,7 +11,11 @@ const Header = (props) => {
             <Container component={'header'} className="App-header">
                 <h2>Countries Challenge</h2>
             </Container>
-            <Button disabled={depth.length===0} size={'small'} onClick={() => history.push("/")}>Back to Home</Button>
+            { depth.length > 0 && 
+                (<Box m={2}>
+                    <Button size={'small'} onClick={() => history.push("/")}>Back to Home</Button>
+                </Box>)
+            }
         </>
     )
 }

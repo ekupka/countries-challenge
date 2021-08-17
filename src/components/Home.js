@@ -1,7 +1,7 @@
 import Grid from '@material-ui/core/Grid';
 import { TextField, Box } from '@material-ui/core';
 import { useQuery } from '@apollo/client';
-import { COUNTRIES, GET_COUNTRY } from '../queries';
+import { COUNTRIES } from '../queries';
 import { useEffect, useState } from 'react';
 import CountryCard from './CountryCard';
 
@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <Grid item container sm={10} md={8} justifyContent="center">
             <Box width="100%" m={4}>
-                <TextField fullWidth onChange={_handleSearchUpdate} label="Search" type="search" variant="outlined" />
+                <TextField fullWidth onChange={_handleSearchUpdate} label="Search" aria-label="Search" id="search-field" type="search" variant="outlined" />
             </Box>
             <Grid container item spacing={3} xs={12}>
                 {countries?.map((country) => 
